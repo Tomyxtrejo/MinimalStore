@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+.cardPlants{
+  font-family: Montserrat !important;
+  background-color: transparent !important;
+  color: #1b1b1b !important;
+  width: 18rem !important;
+  height:32.5rem !important;
+  border: 0.4rem solid transparent !important;
+  border-radius: 5rem !important; 
+  transition: 200ms ease-in-out;
+  margin: 1rem !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cardPlants:hover {
+  cursor: pointer;
+  border-color: #3dcc62 !important;
+  background: linear-gradient(180deg, rgba(226,247,232,1) 0%, rgba(255,255,255,0) 100%);
+  transition: 200ms ease-in-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+.cardPlantsImg {
+  width: 30rem !important;
+  margin-left:-6.2rem !important;
+  margin-top:-2rem !important; 
+  pointer-events: none !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.cardPlantsPrice {
+  font-size: 1.8rem !important;
+  font-weight: 600!important;
+  margin-top:-0.3rem !important; 
+}
+
+.cardPlantsPrice::after {
+  font-size: 1.8rem !important;
+  font-weight: 600!important;
+  margin-top:-0.3rem !important; 
+}
+
+.cardPlantsName {
+  font-size: 1.1rem !important;
+  font-weight: 600!important;
+  margin-top:-0.8rem !important; 
+}
+
+.cardPlants:hover .cardPlantsName{
+  color: #3dcc62;
+}
+
+.cardPlantsTagline {
+  color:transparent !important;
+  font-size: 0.8rem !important;
+  margin-top: -0.8rem !important;
+  transition: 200ms ease-in-out;
+}
+
+.cardPlants:hover .cardPlantsTagline {
+  color: #3dcc62 !important;
+  transition: 200ms ease-in-out;
+}
+
+.tittleH1{
+  font-family: Montserrat !important;
+  font-weight: 600!important;
+  color: #1b1b1b;
+}
+
+.plantPrimary {
+  color: #3dcc62 !important;
+}
+
+
+.plantDanger {
+  color: #df3333 !important;
+}
+
+.plantBGPrimary {
+  background-color: #3dcc62 !important;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
