@@ -1,19 +1,20 @@
 import React from "react";
-import plant  from "../assets/plants/plant5_2.png";
 import { Col, Card } from 'react-bootstrap';
-import '../App.css';
+import '../../App.css';
+import './cardPlant.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import plant1 from '../../assets/plants/plant1_2.png';
 
-function cardPlant({img,tittle}) {
+function cardPlant({name,description, price}) {
     return (
         <Col lg={4} md={6} sm={12} className="d-flex justify-content-center">
             <Card className="text-center cardPlants">
-              <Card.Img variant="bottom" src={img} className="cardPlantsImg" />
+              <Card.Img variant="bottom" src={plant1} className="cardPlantsImg" />
               <Card.Body>
                 <Card.Text className="cardPlantsName">
-                  {tittle}
+                  {name}
                 </Card.Text>
-                <Card.Title className="cardPlantsPrice">$450</Card.Title>
+                <Card.Title className="cardPlantsPrice">${price}</Card.Title>
                 <Card.Text className="cardPlantsTagline">
                  Envio gratis
                 </Card.Text>
