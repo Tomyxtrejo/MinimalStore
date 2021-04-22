@@ -1,0 +1,19 @@
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+  }
+
+  .buttonCounter {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100px !important;
+    background-color: #ffffff;
+    user-select:none;
+    margin: 0rem 0.5rem 0rem 0.5rem;
+  }
+
+  .buttonCounter:hover{
+    background-color: #e7e7e7;
+  }
+  

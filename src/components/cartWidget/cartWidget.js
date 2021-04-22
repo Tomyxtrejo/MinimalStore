@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export const CartWidget = () => {
     return(
         <Nav.Link href="#cart">
-              <FiShoppingCart style={{ fontSize: '2rem', color: '#ffffff' }} />
+              <FiShoppingCart style={{ fontSize: '2rem', color: '#1b1b1b' }} />
               <Badge pill className="plantBGPrimary">
                 1
               </Badge>{' '}

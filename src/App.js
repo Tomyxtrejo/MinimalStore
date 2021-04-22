@@ -14,26 +14,92 @@ const plants = [
   {
     name: 'Adefecius Herbalicus Modernistic lanfibius',
     description: 'Great for enviroments',
-    price: '450',
+    price: 450,
+    stock: 5,
     img: {plant1}
   },
   {
     name: 'Marques delitalis bius',
     description: 'Great for enviroments',
-    price: '500',
+    price: 500,
+    stock: 9,
     img: {plant2}
   },
   {
     name: 'Instalius floripalius floripondius',
     description: 'Great for enviroments',
-    price: '320',
+    price: 320,
+    stock: 10,
     img: {plant3}
-  }
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 8,
+    img: {plant3}
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 1,
+    img: {plant3}
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 2,
+    img: {plant3}
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 5,
+    img: {plant3}
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 4,
+    img: {plant3}
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 3,
+    img: {plant3}
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 7,
+    img: {plant3}
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 2,
+    img: {plant3}
+  },
+  {
+    name: 'Instalius floripalius floripondius',
+    description: 'Great for enviroments',
+    price: 320,
+    stock: 0,
+    img: {plant3}
+  },
 ]
 
 function App() {
   return (
-    <div>
+    <div id="home">
       <Topbar />
       <HeroSlider
         tittle="Tu tienda de plantas"
@@ -43,12 +109,14 @@ function App() {
         img={slide} />
 
       <PlantsListContainer
-        greeting="Hola, soy un greeting"
+        greeting="No te las pierdas!"
         tittle="Tendencias esta semana"
+        anchor="trends"
         plants={plants} />
 
       <PlantsListContainer
         tittle="Novedades"
+        anchor="new"
         plants={plants} />
 
       <Footer />
