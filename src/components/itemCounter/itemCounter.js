@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap'
+import { useState } from 'react';
 import { ButtonPlantr } from '../buttonPlantr/buttonPlantr'
 import './itemCounter.css';
 

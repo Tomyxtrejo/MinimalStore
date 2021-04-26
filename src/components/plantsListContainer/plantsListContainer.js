@@ -1,9 +1,9 @@
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { AiOutlineFire } from 'react-icons/ai';
 import '../../App.css';
 import './plantsListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CardPlant from '../cardPlant/cardPlant';
+import { PlantsList } from '../plantsList/plantsList';
 
 export const PlantsListContainer = ({tittle, greeting, anchor, plants}) => {
     return (
@@ -14,20 +14,9 @@ export const PlantsListContainer = ({tittle, greeting, anchor, plants}) => {
           {tittle}
           <AiOutlineFire className="plantPrimary"/>
           </h1>
-        <Row>
-          {plants.map((plant) => (
-            
-            <CardPlant
-            name={plant.name}
-            description={plant.description}
-            price={plant.price}
-            stock={plant.stock}
-            img={Math.floor(Math.random() * 12) + 1}
-            />
-          ))}
-          
-
-        </Row>
+          <PlantsList
+            plants = {plants}
+          />
       </Container>
     )
 }

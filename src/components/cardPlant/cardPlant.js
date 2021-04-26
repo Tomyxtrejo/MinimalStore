@@ -5,10 +5,10 @@ import '../../App.css';
 import './cardPlant.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function cardPlant({ name, description, price, stock, img }) {
+export const CardPlant = ({ name, description, price, stock, img }) => {
   const images = require.context('../../../public/plants', true);
   let imgsrc = images(`./plant${img}_2.png`);
-  console.log(imgsrc.default);
+  //console.log(imgsrc.default);
   return (
     <Col lg={4} md={6} sm={12} className="d-flex justify-content-center">
       <Card className="text-center cardPlants">
@@ -30,5 +30,3 @@ function cardPlant({ name, description, price, stock, img }) {
     </Col>
   );
 }
-
-export default cardPlant;
