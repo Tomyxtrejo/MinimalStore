@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
+import './plantDetailContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Topbar } from './components/topbar/topbar';
-import { HeroSlider } from './components/heroSlider/heroSlider';
-import { PlantsListContainer } from './components/plantsListContainer/plantsListContainer';
-import { Footer } from './components/footer/footer';
-import slide from "./assets/slide.jpg";
+import { Topbar } from '../../components/topbar/topbar';
+import { PlantDetail } from '../../components/plantDetail/plantDetail';
+import { Footer } from '../../components/footer/footer';
 
 
 
-function App() {
+export const PlantDetailContainer = () => {
   const plantsData = [
 
     {
@@ -121,30 +119,11 @@ function App() {
 
 
   return (
-    <div id="home">
+    <div id="detail">
       <Topbar />
-      <HeroSlider
-        tittle="Tu tienda de plantas"
-        subtittle="Venimos a mejorar tu experiencia con el mundo de las plantas.
-    Ofrecemos todo tipo de variedades para que encuentres
-    la que mejor se adapte a vos."
-        img={slide} />
-
-      <PlantsListContainer
-        greeting="No te las pierdas!"
-        tittle="Tendencias esta semana"
-        anchor="trends"
-        plants={plants} />
-
-      <PlantsListContainer
-        tittle="Novedades"
-        anchor="new"
-        plants={plants} />
-
+      <PlantDetail />
       <Footer />
     </div>
   );
 }
-
-export default App;
 

@@ -9,11 +9,7 @@ export const PlantsList = ({plants}) => {
   if (plants !== 'loading') {
     return (
         <Row>
-
           {plants.map((plant) => (
-
-           
-            
             <CardPlant
             name={plant.name}
             description={plant.description}

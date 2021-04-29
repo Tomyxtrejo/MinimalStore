@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+.tittleH1{
+    font-family: Montserrat !important;
+    font-weight: 600!important;
+    color: #1b1b1b;
+  }
+  
+  .plantPrimary {
+    color: #3dcc62 !important;
+  }
+  
+  
+  .plantDanger {
+    color: #df3333 !important;
+  }
+  
+  .plantBGPrimary {
+    background-color: #3dcc62 !important;
+    color: white;
+  }
+
+  .plantMainDetails {
+    display: flex;
+    justify-items: center;
+  }
+
+  .plantPrice {
+    display: flex;
+    justify-items: center;
+  }
+
+  .priceText {
+    font-weight: 400 !important;
+  }
+
+  .plantImage {
+      max-width: 180% !important;
+      margin: -18rem 0 0 -15rem;
+      position:absolute;
+      pointer-events: none !important;
+  }
+
+  .compraProtegida {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #a19c95;
+  }
+
+  .plantInteractive {
+      width: 60%;
+  }
+  .plantFeatures {
+    width: 40%;
+    font-family: Montserrat;
+}
+    .plantData {
+}
+
+.plantShipping {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+.shippingText {
+    font-family: Montserrat !important;
+    font-size: 1rem;
+    color: #828683;
+    font-weight: 400 !important;
+    margin-bottom: 0;
+}
+
+.linkSmall {
+    position: absolute;
+    font-size: 0.8rem;
+    margin-top: -0.3rem;
+}
+
+.plantDescription {
+    color: #a19c95;
+    margin-bottom: 2rem;
+}
+
+ul {
+    list-style: none; /* Remove default bullets */
+  }
+  
+  ul li::before {
+    content: "\2022";
+    color: #3dcc62;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  li {
+    color: #1b1b1b;
+    margin: 0.2rem 0;
+    white-space: nowrap;
+  }
+  .plantDetails {
+      background-color: #e7e7e7;
+      background-image: url('../../assets/bg-detail.png');
+      background-size: cover;
+      background-position: 50%;
+  }
+
+  .detailsSection2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .userCardName {
+      display: flex;
+      align-items: center;
+  }
+
+  .userCardComment {
+      background-color: #fff;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: rgba(0,0,0,0.2) 20px 20px 50px;
+      margin-top: -1rem;
+      margin-bottom: 2rem;
+      border: #3dcc62 solid 5px;
+  }
+  .plantCaracteristicas {
+      font-family: Montserrat;
+      font-size: 1.4rem;
+  }
+
+  .featuresList {
+    display: flex;
+    justify-content:flex-end;
+    align-items: left;
+    flex-direction: column;
+  }

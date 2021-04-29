@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { ItemCounter } from '../itemCounter/itemCounter'
+import { DropdownPlantr } from '../dropdownPlantr/dropdownPlantr'
 import { ButtonPlantr } from '../buttonPlantr/buttonPlantr'
-import './itemCounter.css';
 
-export const ItemCounter = ({ tittle, stock }) => {
+import './itemInteractive.css';
+
+export const ItemInteractive = ({ stock }) => {
     const [quantity, setQuantity] = useState(1);
     const handleClick = (data) => {
 
@@ -22,13 +25,13 @@ export const ItemCounter = ({ tittle, stock }) => {
         console.log(quantity);
     };
     return (
-        <div className="counterContainer">
-            <p className="counterTittle">{tittle}</p>
-            <div className="counter">
-                <div className="buttonCounter" onClick={() => handleClick(-1)}>-</div>
-                <p>{quantity}</p>
-                <div className="buttonCounter" onClick={() => handleClick(1)}>+</div>
+        <div>
+            <div className="plantOptions">
+                <ItemCounter tittle="Cantidad" stock={5}/>
+                <DropdownPlantr tittle="Tamaño" options={['30 cm', '50 cm', '70 cm']} />
+                <DropdownPlantr tittle="Variedad" options={['China', 'Alemana', 'Argentina']} />
             </div>
+            <ButtonPlantr>Agregar al carrito</ButtonPlantr>
         </div>
 
     )

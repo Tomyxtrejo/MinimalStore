@@ -7,7 +7,7 @@
     border: 0.4rem solid transparent !important;
     border-radius: 5rem !important; 
     margin: 1rem !important;
-    animation: fadeIn 200ms;
+    animation: fadeIn 100ms;
   }
   @keyframes fadeIn {
     0% {opacity:0;}
