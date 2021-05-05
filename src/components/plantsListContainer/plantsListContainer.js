@@ -1,5 +1,4 @@
 import { Container } from 'react-bootstrap';
-import { AiOutlineFire } from 'react-icons/ai';
 import '../../App.css';
 import './plantsListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +8,6 @@ import { useState, useEffect } from 'react'
 import { plantsJson } from '../../data'
 export const PlantsListContainer = ({ tittle, greeting, anchor }) => {
 
-  const plantsData = plantsJson;
   const { category } = useParams();
   const [plants, setPlants] = useState('loading')
 
@@ -23,7 +21,7 @@ export const PlantsListContainer = ({ tittle, greeting, anchor }) => {
 
   useEffect(() => {
     setPlants('loading')
-    getPlants(plantsData).then(result => {
+    getPlants(plantsJson).then(result => {
       if (category){
         const filtered = result.filter(plant => plant.category === category);
         if (filtered.length) {
@@ -37,9 +35,6 @@ export const PlantsListContainer = ({ tittle, greeting, anchor }) => {
     });
     getPlants()
   }, [category])
-
-
-  console.log(getPlants(plantsData))
 
 
   return (

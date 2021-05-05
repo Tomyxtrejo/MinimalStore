@@ -1,7 +1,7 @@
 import './buttonPlantr.css'
 
-export const ButtonPlantr = ({children}) => {
+export const ButtonPlantr = ({children, color}) => {
     return(
-        <button className="buttonPlantr">{children}</button>
+        <button className={(color === 'light') ? 'buttonPlantrLight' : 'buttonPlantr'}>{children}</button>
     )
 }

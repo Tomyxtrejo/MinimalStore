@@ -30,8 +30,8 @@ export const Topbar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               {links.map((link) => (
-                <Link to={`/category/${link}`} className="linkCategory">
-                  <p>{link}</p>
+                <Link to={`/category/${link}`} className="linkCategory" key={link}>
+                  <p key={link}>{link}</p>
                 </Link>
                 
               ))}

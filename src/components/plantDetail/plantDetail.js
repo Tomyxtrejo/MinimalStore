@@ -1,16 +1,13 @@
 import './plantDetail.css'
-import { Row, Col, Image, Container, Table } from 'react-bootstrap';
+import { Row, Col, Image, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemInteractive } from '../itemInteractive/itemInteractive'
-import imgplanta1 from '../../assets/plants/plant1_1.png'
-import imgplanta2 from '../../assets/plants/plant1_2.png'
-import { IoShieldCheckmarkOutline, IoHeartOutline, IoCheckmarkCircleOutline } from 'react-icons/io5';
+import { IoShieldCheckmarkOutline, IoHeartOutline } from 'react-icons/io5';
 import { IconContext } from "react-icons";
 
 
 
 export const PlantDetail = ({plant}) => {
-    console.log(plant)
     return (
         <div>
             <div className="plantDetails" style={{ backgroundColor: '#e7e7e7' }}>
@@ -34,7 +31,7 @@ export const PlantDetail = ({plant}) => {
                                             <h1 className="tittleH1 priceText">$ {plant.price}</h1>
                                             <div className="plantShipping">
                                                 <h5 className="shippingText">Envio gratis!</h5>
-                                                <a href="#" className="linkSmall">Mas información</a>
+                                                <a className="linkSmall">Mas información</a>
                                             </div>
                                         </div>
                                         <ItemInteractive stock={plant.stock} size={plant.size} variety={plant.variety}/>
@@ -42,7 +39,7 @@ export const PlantDetail = ({plant}) => {
                                     <div className="plantFeatures">
                                         <ul className="featuresList">
                                         { plant.features.slice(0, 3).map((feature) => (
-                                            <li>{feature}</li>
+                                            <li key={feature}>{feature}</li>
                                         ))}
                                             <li>Incluye pack de semillas</li>
                                             <a href="#features">Ver todas</a>
@@ -74,13 +71,13 @@ export const PlantDetail = ({plant}) => {
                     </p>
                     <Row className="detailsSection2" className="mb-5">
                         <Col xs={6}>
-                            <img src={require(`../../assets/plants/plant${plant.id}_2.png`).default} alt="" fluid style={{marginLeft: '',maxWidth:'100%'}} />
+                            <img src={require(`../../assets/plants/plant${plant.id}_2.png`).default} alt="" fluid="true" style={{marginLeft: '',maxWidth:'100%'}} />
                         </Col>
                         <Col xs={6} className="featuresList">
                             <h5 className="plantPrimary">Caracteristicas</h5>
                             <ul className="plantCaracteristicas">
                                 {plant.features.map((feature) => (
-                                    <li>{feature}</li>
+                                    <li key={feature}>{feature}</li>
                                 ))}
                             </ul>
                         </Col>

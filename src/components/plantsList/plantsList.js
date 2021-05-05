@@ -6,17 +6,18 @@ import { CardPlant } from '../cardPlant/cardPlant';
 import { CardPlantLoading } from '../cardPlantLoading/cardPlantLoading';
 import { ButtonPlantr } from '../buttonPlantr/buttonPlantr';
 import { Link } from 'react-router-dom'
+import { AiOutlineHome } from 'react-icons/ai'
 
 
 export const PlantsList = ({ plants }) => {
   if (plants !== 'loading') {
-    if (plants == 'empty') {
+    if (plants === 'empty') {
       return (
         <Row style={{padding:'5rem 0 20rem 0', flexDirection: 'column'}}>
           <h4 style={{marginBottom: '2rem'}}>Aun no hay plantas en esta categoria</h4>
           <div style={{width: '20%'}}>
           <Link to='/'>
-          <ButtonPlantr style={{}}>Volver al inicio</ButtonPlantr>
+          <ButtonPlantr style={{}}><AiOutlineHome /> Volver al inicio</ButtonPlantr>
           </Link>
           </div>
         </Row>
@@ -32,7 +33,7 @@ export const PlantsList = ({ plants }) => {
               description={plant.description}
               price={plant.price}
               stock={plant.stock}
-              img={Math.floor(Math.random() * 12) + 1}
+              key={plant.id}
             />
           ))}
         </Row>

@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import { plantsJson } from '../../data'
 import './home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HeroSlider } from '../../components/heroSlider/heroSlider';
@@ -31,6 +29,7 @@ export const Home = () => {
             />
 
             <PlantsListContainer
+                greeting=" "
                 tittle="Novedades"
                 anchor="new"
             />

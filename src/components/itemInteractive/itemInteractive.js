@@ -2,15 +2,19 @@ import { useState } from 'react';
 import { ItemCounter } from '../itemCounter/itemCounter'
 import { DropdownPlantr } from '../dropdownPlantr/dropdownPlantr'
 import { ButtonPlantr } from '../buttonPlantr/buttonPlantr'
-import { FiShoppingCart } from 'react-icons/fi';
+import { Link } from 'react-router-dom'
+import { FiShoppingCart, FiArrowRight } from 'react-icons/fi'
 
 
 import './itemInteractive.css';
 
 export const ItemInteractive = ({ stock, size, variety }) => {
     const [quantity, setQuantity] = useState(1);
+    const [purchase, setPurchase] = useState(false);
+    if (stock === 0) {
+        console.log('no hay stock')
+    }
     const handleClick = (data) => {
-
         if (quantity !== stock) {
             if (quantity !== 1) {
                 setQuantity(quantity + data)
@@ -20,20 +24,43 @@ export const ItemInteractive = ({ stock, size, variety }) => {
                 }
             }
         } else {
-            if (data === -1) {
-                setQuantity(quantity + data)
+            if (quantity !== 1) {
+                if (data === -1) {
+                    setQuantity(quantity + data)
+                }
             }
+
         }
-        console.log(quantity);
     };
+
+    const finishPurchase = () => {
+        setPurchase(true)
+    }
+
     return (
-        <div>
-            <div className="plantOptions">
-                <ItemCounter tittle="Cantidad" stock={stock}/>
-                <DropdownPlantr tittle="Tamaño" options={size} />
-                <DropdownPlantr tittle="Variedad" options={variety} />
-            </div>
-            <ButtonPlantr><FiShoppingCart /> Agregar al carrito</ButtonPlantr>
+        <div>{
+            stock > 0 ?
+                purchase ?
+                    <div style={{ marginTop: '1.5rem' }}>
+                        <Link to='/cart'>
+                            <ButtonPlantr color='light'>Finalizar compra <FiArrowRight /></ButtonPlantr>
+                        </Link>
+                    </div>
+                    :
+                    <div>
+                        <div className="plantOptions">
+                            <ItemCounter tittle="Cantidad" stock={stock} onAdd={handleClick} quantity={quantity} />
+                            <DropdownPlantr tittle="Tamaño" options={size} />
+                            <DropdownPlantr tittle="Variedad" options={variety} />
+                        </div>
+                        <div onClick={() => finishPurchase()}>
+                            <ButtonPlantr><FiShoppingCart /> Agregar al carrito</ButtonPlantr>
+                        </div>
+                    </div>
+                :
+                <p>No hay stock</p>
+        }
+
         </div>
 
     )
