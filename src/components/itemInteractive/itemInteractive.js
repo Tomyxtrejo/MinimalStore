@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { ItemCounter } from '../itemCounter/itemCounter'
 import { DropdownPlantr } from '../dropdownPlantr/dropdownPlantr'
 import { ButtonPlantr } from '../buttonPlantr/buttonPlantr'
+import { FiShoppingCart } from 'react-icons/fi';
+
 
 import './itemInteractive.css';
 
-export const ItemInteractive = ({ stock }) => {
+export const ItemInteractive = ({ stock, size, variety }) => {
     const [quantity, setQuantity] = useState(1);
     const handleClick = (data) => {
 
@@ -27,11 +29,11 @@ export const ItemInteractive = ({ stock }) => {
     return (
         <div>
             <div className="plantOptions">
-                <ItemCounter tittle="Cantidad" stock={5}/>
-                <DropdownPlantr tittle="Tamaño" options={['30 cm', '50 cm', '70 cm']} />
-                <DropdownPlantr tittle="Variedad" options={['China', 'Alemana', 'Argentina']} />
+                <ItemCounter tittle="Cantidad" stock={stock}/>
+                <DropdownPlantr tittle="Tamaño" options={size} />
+                <DropdownPlantr tittle="Variedad" options={variety} />
             </div>
-            <ButtonPlantr>Agregar al carrito</ButtonPlantr>
+            <ButtonPlantr><FiShoppingCart /> Agregar al carrito</ButtonPlantr>
         </div>
 
     )

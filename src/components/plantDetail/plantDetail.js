@@ -9,7 +9,8 @@ import { IconContext } from "react-icons";
 
 
 
-export const PlantDetail = () => {
+export const PlantDetail = ({plant}) => {
+    console.log(plant)
     return (
         <div>
             <div className="plantDetails" style={{ backgroundColor: '#e7e7e7' }}>
@@ -18,29 +19,31 @@ export const PlantDetail = () => {
                     <Row >
                         <Col md={6}>
                             <div className="plantData">
-                                <h1 className="tittleH1">
-                                    Dracaena Sanderiana
+                                <h1 className="tittleH1 plantName">
+                                    {plant.name}
                                 <IconContext.Provider value={{ color: "#3dcc62" }}>
                                         <IoHeartOutline />
                                     </IconContext.Provider>
                                 </h1>
-                                <h5 className="plantDescription">Comunmente llamada "bambu de la suerte". Puede sobrevivir en muchos ambientes cerrados</h5>
+                                <h5 className="plantDescription">
+                                    {plant.description}
+                                </h5>
                                 <div className="plantMainDetails">
                                     <div className="plantInteractive">
                                         <div className="plantPrice">
-                                            <h1 className="tittleH1 priceText">$ 350</h1>
+                                            <h1 className="tittleH1 priceText">$ {plant.price}</h1>
                                             <div className="plantShipping">
                                                 <h5 className="shippingText">Envio gratis!</h5>
                                                 <a href="#" className="linkSmall">Mas información</a>
                                             </div>
                                         </div>
-                                        <ItemInteractive stock={5} />
+                                        <ItemInteractive stock={plant.stock} size={plant.size} variety={plant.variety}/>
                                     </div>
                                     <div className="plantFeatures">
                                         <ul className="featuresList">
-                                            <li>Apto novatos</li>
-                                            <li>Para interiores</li>
-                                            <li>Espanta insectos</li>
+                                        { plant.features.slice(0, 3).map((feature) => (
+                                            <li>{feature}</li>
+                                        ))}
                                             <li>Incluye pack de semillas</li>
                                             <a href="#features">Ver todas</a>
                                         </ul>
@@ -56,7 +59,7 @@ export const PlantDetail = () => {
                             </div>
                         </Col>
                         <Col md={6}>
-                            <Image src={imgplanta1} className="plantImage" fluid />
+                            <Image src={require(`../../assets/plants/plant${plant.id}_1.png`).default} className="plantImage" fluid />
                         </Col>
                     </Row>
                 </Container>
@@ -67,24 +70,18 @@ export const PlantDetail = () => {
                     <h1 className="tittleH1" style={{ color: '#828683' }}>+info</h1>
                     <h5 className="plantPrimary">Descripcción</h5>
                     <p>
-                    Comunmente llamada "bambu de la suerte". Puede sobrevivir en muchos ambientes cerradoses y psilotales) y el grupo conocido popularmente como de los "helechos verdaderos" (maratiales y polipódidos) que hoy en día luego de los análisis moleculares de ADN consensuados se determinó que forman un clado (grupo monofilético según la escuela cladista).
-                        se puede dividir en dos gruposː Ophioglossidae (ofioglosales y psilotales) y el grupo conocido popularmente como de los "helechos verdaderos" (maratiales y polipódidos) que hoy en día luego de los análisis moleculares de ADN consensuados se determinó que forman un clado (grupo monofilético según la escuela cladista).
+                        {plant.description}
                     </p>
                     <Row className="detailsSection2" className="mb-5">
                         <Col xs={6}>
-                            <img src={imgplanta2} alt="" fluid style={{marginLeft: '',maxWidth:'100%'}} />
+                            <img src={require(`../../assets/plants/plant${plant.id}_2.png`).default} alt="" fluid style={{marginLeft: '',maxWidth:'100%'}} />
                         </Col>
                         <Col xs={6} className="featuresList">
                             <h5 className="plantPrimary">Caracteristicas</h5>
                             <ul className="plantCaracteristicas">
-                                <li>Apto novatos</li>
-                                <li>Para interiores</li>
-                                <li>Espanta insectos</li>
-                                <li>Facil mantenimiento</li>
-                                <li>Apto novatos</li>
-                                <li>Para interiores</li>
-                                <li>Espanta insectos</li>
-                                <li>Facil mantenimiento</li>
+                                {plant.features.map((feature) => (
+                                    <li>{feature}</li>
+                                ))}
                             </ul>
                         </Col>
                         

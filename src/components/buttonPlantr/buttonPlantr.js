@@ -1,8 +1,7 @@
 import './buttonPlantr.css'
-import { FiShoppingCart } from 'react-icons/fi';
 
-export const ButtonPlantr = () => {
+export const ButtonPlantr = ({children}) => {
     return(
-        <button className="buttonPlantr"><FiShoppingCart /> Agregar al carrito</button>
+        <button className="buttonPlantr">{children}</button>
     )
 }
