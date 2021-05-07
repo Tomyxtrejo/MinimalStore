@@ -1,11 +1,16 @@
+import { useContext } from 'react'
 import { Nav, Navbar, Image } from 'react-bootstrap'
 import { CartWidget } from '../cartWidget/cartWidget'
 import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/cartContext'
 import logo from "../../assets/logo2.png"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './topbar.css';
 
 export const Topbar = () => {
+
+  const { quantity } = useContext(CartContext)
+
   window.onscroll = () => {
     const nav = document.querySelector('#topbar');
     if (window.scrollY <= 0)
@@ -33,10 +38,9 @@ export const Topbar = () => {
                 <Link to={`/category/${link}`} className="linkCategory" key={link}>
                   <p key={link}>{link}</p>
                 </Link>
-                
               ))}
             </Nav>
-            <CartWidget />
+            <CartWidget quantity={quantity} />
           </Navbar.Collapse>
         </div>
       </Navbar>

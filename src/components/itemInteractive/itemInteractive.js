@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { ItemCounter } from '../itemCounter/itemCounter'
 import { DropdownPlantr } from '../dropdownPlantr/dropdownPlantr'
 import { ButtonPlantr } from '../buttonPlantr/buttonPlantr'
 import { Link } from 'react-router-dom'
 import { FiShoppingCart, FiArrowRight } from 'react-icons/fi'
+import { CartContext } from '../../context/cartContext'
 
 
 import './itemInteractive.css';
 
-export const ItemInteractive = ({ stock, size, variety }) => {
+export const ItemInteractive = ({ item, stock, size, variety }) => {
     const [quantity, setQuantity] = useState(1);
     const [purchase, setPurchase] = useState(false);
+    const { addItem, removeItem, isInCart } = useContext(CartContext)
+
+
     if (stock === 0) {
         console.log('no hay stock')
     }
@@ -33,12 +37,16 @@ export const ItemInteractive = ({ stock, size, variety }) => {
         }
     };
 
+
     const finishPurchase = () => {
         setPurchase(true)
+        addItem(item, quantity)
     }
 
     return (
-        <div>{
+        <div>
+            <button onClick={()=> isInCart(item.id)}></button>
+            {
             stock > 0 ?
                 purchase ?
                     <div style={{ marginTop: '1.5rem' }}>
@@ -56,6 +64,7 @@ export const ItemInteractive = ({ stock, size, variety }) => {
                         <div onClick={() => finishPurchase()}>
                             <ButtonPlantr><FiShoppingCart /> Agregar al carrito</ButtonPlantr>
                         </div>
+                        
                     </div>
                 :
                 <p>No hay stock</p>

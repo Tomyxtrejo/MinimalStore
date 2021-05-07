@@ -7,29 +7,33 @@ import { PlantsListContainer } from './components/plantsListContainer/plantsList
 import { ScrollToTop } from './components/scrollToTop/scrollToTop';
 import { Topbar } from './components/topbar/topbar';
 import { Footer } from './components/footer/footer';
+import { CartProvider } from './context/cartContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Topbar />
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route exact path='/item/:id'>
-
-          <PlantDetailContainer />
-        </Route>
-        <Route exact path='/category/:category'>
-          <PlantsListContainer />
-        </Route>
-        <Route exact path='/cart'>
-          <Cart />
-        </Route>
-      </Switch>
-      <Footer />
-    </BrowserRouter>
+    <div>
+      <CartProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Topbar />
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route exact path='/item/:id'>
+              <PlantDetailContainer />
+            </Route>
+            <Route exact path='/category/:category'>
+              <PlantsListContainer />
+            </Route>
+            <Route exact path='/cart'>
+              <Cart />
+            </Route>
+          </Switch>
+          <Footer />
+        </BrowserRouter>
+      </CartProvider>
+    </div>
   )
 }
 

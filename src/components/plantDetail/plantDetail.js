@@ -34,7 +34,7 @@ export const PlantDetail = ({plant}) => {
                                                 <a className="linkSmall">Mas información</a>
                                             </div>
                                         </div>
-                                        <ItemInteractive stock={plant.stock} size={plant.size} variety={plant.variety}/>
+                                        <ItemInteractive item={plant} stock={plant.stock} size={plant.size} variety={plant.variety}/>
                                     </div>
                                     <div className="plantFeatures">
                                         <ul className="featuresList">
