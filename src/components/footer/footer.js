@@ -23,16 +23,16 @@ export const Footer = () => {
               <h5>Plant Paradise</h5>
               <ul>
                 <li>
-                  <a href="#">Tienda</a>
+                  <a href="/">Tienda</a>
                 </li>
                 <li>
-                  <a href="#">¿Como funciona?</a>
+                  <a href="/">¿Como funciona?</a>
                 </li>
                 <li>
-                  <a href="#">FAQ</a>
+                  <a href="/">FAQ</a>
                 </li>
                 <li>
-                  <a href="#">Soporte</a>
+                  <a href="/">Soporte</a>
                 </li>
               </ul>
 
@@ -44,16 +44,16 @@ export const Footer = () => {
               <h5>Comunidad</h5>
               <ul>
                 <li>
-                  <a href="#">Grupo</a>
+                  <a href="/">Grupo</a>
                 </li>
                 <li>
-                  <a href="#">Foro</a>
+                  <a href="/">Foro</a>
                 </li>
                 <li>
-                  <a href="#">Votación</a>
+                  <a href="/">Votación</a>
                 </li>
                 <li>
-                  <a href="#">Sugerencias</a>
+                  <a href="/">Sugerencias</a>
                 </li>
               </ul>
             </Col>

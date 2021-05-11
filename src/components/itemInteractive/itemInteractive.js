@@ -12,7 +12,7 @@ import './itemInteractive.css';
 export const ItemInteractive = ({ item, stock, size, variety }) => {
     const [quantity, setQuantity] = useState(1);
     const [purchase, setPurchase] = useState(false);
-    const { addItem, removeItem, isInCart } = useContext(CartContext)
+    const { addItem } = useContext(CartContext)
 
 
     if (stock === 0) {
@@ -45,7 +45,6 @@ export const ItemInteractive = ({ item, stock, size, variety }) => {
 
     return (
         <div>
-            <button onClick={()=> isInCart(item.id)}></button>
             {
             stock > 0 ?
                 purchase ?

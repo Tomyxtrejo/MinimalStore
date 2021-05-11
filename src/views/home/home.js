@@ -1,7 +1,7 @@
 import './home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HeroSlider } from '../../components/heroSlider/heroSlider';
-import { PlantsListContainer } from '../../components/plantsListContainer/plantsListContainer';
+import { ItemListContainer } from '../../components/itemListContainer/itemListContainer';
 import slide from "../../assets/slide.jpg";
 
 
@@ -22,13 +22,13 @@ export const Home = () => {
     la que mejor se adapte a vos."
                 img={slide} />
 
-            <PlantsListContainer
+            <ItemListContainer
                 greeting="No te las pierdas!"
                 tittle="Tendencias esta semana"
                 anchor="trends"
             />
 
-            <PlantsListContainer
+            <ItemListContainer
                 greeting=" "
                 tittle="Novedades"
                 anchor="new"

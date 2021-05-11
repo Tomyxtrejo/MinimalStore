@@ -2,10 +2,10 @@ import React from "react";
 import { Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import '../../App.css';
-import './cardPlant.css';
+import './item.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const CardPlant = ({ id, name, price }) => {
+export const Item = ({ id, name, price }) => {
   const images = require.context('../../../public/plants', true);
   let imgsrc = images(`./plant${id}_2.png`);
   return (

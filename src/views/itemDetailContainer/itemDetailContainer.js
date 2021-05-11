@@ -1,10 +1,10 @@
-import './plantDetailContainer.css';
+import './itemDetailContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { plantsJson } from '../../data'
 import { useParams } from "react-router-dom";
-import { PlantDetail } from '../../components/plantDetail/plantDetail';
+import { ItemDetail } from '../../components/itemDetail/itemDetail';
 
-export const PlantDetailContainer = () => {
+export const ItemDetailContainer = () => {
   const { id } = useParams();
   const getPlant = (id) => {
     const plantData = plantsJson.find((plant) => plant.id === Number(id))
@@ -13,7 +13,7 @@ export const PlantDetailContainer = () => {
 
   return (
     <div id="detail">
-      <PlantDetail plant={getPlant(id)} />
+      <ItemDetail plant={getPlant(id)} />
     </div>
   );
 }

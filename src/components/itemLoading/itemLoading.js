@@ -2,10 +2,10 @@ import React from "react";
 import { Col, Card } from 'react-bootstrap';
 import loadingImg from "../../assets/plant-loading.png";
 import '../../App.css';
-import './cardPlantLoading.css';
+import './itemLoading.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const CardPlantLoading = () => {
+export const ItemLoading = () => {
   return (
     <Col lg={4} md={6} sm={12} className="d-flex justify-content-center">
       <Card className="text-center cardPlantsLoading">

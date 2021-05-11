@@ -1,15 +1,15 @@
 import { Row } from 'react-bootstrap';
 import '../../App.css';
-import './plantsList.css';
+import './itemList.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { CardPlant } from '../cardPlant/cardPlant';
-import { CardPlantLoading } from '../cardPlantLoading/cardPlantLoading';
+import { Item } from '../item/item';
+import { ItemLoading } from '../itemLoading/itemLoading';
 import { ButtonPlantr } from '../buttonPlantr/buttonPlantr';
 import { Link } from 'react-router-dom'
 import { AiOutlineHome } from 'react-icons/ai'
 
 
-export const PlantsList = ({ plants }) => {
+export const ItemList = ({ plants }) => {
   if (plants !== 'loading') {
     if (plants === 'empty') {
       return (
@@ -27,7 +27,7 @@ export const PlantsList = ({ plants }) => {
       return (
         <Row>
           {plants.map((plant) => (
-            <CardPlant
+            <Item
               id={plant.id}
               name={plant.name}
               description={plant.description}
@@ -44,9 +44,9 @@ export const PlantsList = ({ plants }) => {
 
     return (
       <Row>
-        <CardPlantLoading />
-        <CardPlantLoading />
-        <CardPlantLoading />
+        <ItemLoading />
+        <ItemLoading />
+        <ItemLoading />
       </Row>
     )
   }

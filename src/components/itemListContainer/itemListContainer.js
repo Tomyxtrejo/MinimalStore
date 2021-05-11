@@ -1,12 +1,12 @@
 import { Container } from 'react-bootstrap';
 import '../../App.css';
-import './plantsListContainer.css';
+import './itemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PlantsList } from '../plantsList/plantsList';
+import { ItemList } from '../itemList/itemList';
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { plantsJson } from '../../data'
-export const PlantsListContainer = ({ tittle, greeting, anchor }) => {
+export const ItemListContainer = ({ tittle, greeting, anchor }) => {
 
   const { category } = useParams();
   const [plants, setPlants] = useState('loading')
@@ -43,7 +43,7 @@ export const PlantsListContainer = ({ tittle, greeting, anchor }) => {
       <h1 className="tittleH1 mb-4">
         {tittle ? tittle : category}
       </h1>
-      <PlantsList
+      <ItemList
         plants={plants}
       />
     </Container>

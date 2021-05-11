@@ -36,12 +36,27 @@
     font-weight: 400 !important;
   }
 
+  .images{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
   .plantImage {
       max-width: 180% !important;
-      margin: -18rem 0 0 -15rem;
-      position:absolute;
+      margin: -1rem 0 0 -15rem;
+      position: absolute !important;
       pointer-events: none !important;
+      user-select: none;
   }
+
+  .plantSeeds {
+    max-width: 40% !important;
+    margin: 30rem 0 0 4rem;
+    position: absolute !important;
+    pointer-events: none !important;
+    user-select: none;
+}
 
   .compraProtegida {
     display: flex;
@@ -58,8 +73,6 @@
   .plantFeatures {
     width: 40%;
     font-family: Montserrat;
-}
-    .plantData {
 }
 
 .plantShipping {
@@ -97,7 +110,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-line-clamp: 1; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
 
