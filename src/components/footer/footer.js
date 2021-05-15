@@ -3,7 +3,7 @@ import { TiSocialTwitter, TiSocialFacebook, TiSocialGithub, TiSocialPinterest } 
 
 export const Footer = () => {
     return(
-        <div style={{ backgroundColor: '#1b1b1b', color: '#fff', padding: '7rem 0rem' }}>
+        <div style={{fontFamily: 'Montserrat', padding: '3rem 0rem 7rem 0rem', borderTop:'1px rgba(0,0,0,0.1) solid',boxShadow: 'rgb(231 231 231 / 60%) -1px 1px 40px 3px'}}>
         <Container>
           <Row>
             <Col>
@@ -15,30 +15,26 @@ export const Footer = () => {
                   aria-describedby="basic-addon2"
                 />
                 <InputGroup.Append>
-                  <Button variant="outline-secondary">Ser parte</Button>
+                  <Button variant="outline-success">Ser parte</Button>
                 </InputGroup.Append>
               </InputGroup>
             </Col>
             <Col>
-              <h5>Plant Paradise</h5>
+              <h5>Plantr</h5>
               <ul>
                 <li>
-                  <a href="/">Tienda</a>
-                </li>
-                <li>
-                  <a href="/">¿Como funciona?</a>
+                  <a href="/" className="footerLink">Tienda</a>
                 </li>
                 <li>
                   <a href="/">FAQ</a>
                 </li>
                 <li>
+                  <a href="/">Seguir envio</a>
+                </li>
+                <li>
                   <a href="/">Soporte</a>
                 </li>
               </ul>
-
-
-
-
             </Col>
             <Col>
               <h5>Comunidad</h5>

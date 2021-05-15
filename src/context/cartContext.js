@@ -8,9 +8,9 @@ export const CartProvider = ({ children }) => {
     const [total, setTotal] = useState(0)
     const calculateTotal = (arr) => {
         return arr.reduce((sum, i) => {
-          return sum + (i.item.price * i.quantity)
+            return sum + (i.item.price * i.quantity)
         }, 0)
-      };    
+    };
 
     useEffect(() => {
         let totalPrice = 0
@@ -49,8 +49,6 @@ export const CartProvider = ({ children }) => {
     const clearCart = () => {
         setCartItems([])
     }
-
-
 
     return (
         <CartContext.Provider value={{ cartItems, quantity, addItem, removeItem, isInCart, clearCart, total }}>

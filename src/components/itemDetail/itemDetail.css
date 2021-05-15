@@ -137,6 +137,11 @@ ul {
       background-image: url('../../assets/bg-detail.png');
       background-size: cover;
       background-position: 50%;
+      animation: fadeIn 1s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
   }
 
   .detailsSection2 {
@@ -169,4 +174,20 @@ ul {
     justify-content:flex-end;
     align-items: left;
     flex-direction: column;
+  }
+
+  .loader {
+    color:#3dcc62;
+    font-size: 3rem;
+    animation: spin-animation 0.5s infinite;
+    display: inline-block;
+  }
+  
+  @keyframes spin-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(359deg);
+    }
   }

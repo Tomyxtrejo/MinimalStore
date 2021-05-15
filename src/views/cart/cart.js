@@ -19,11 +19,11 @@ export const Cart = () => {
                             <h4 style={{ marginBottom: '2rem' }}>Carrito( {quantity} )</h4>
                             <p className="cleanCart" onClick={() => clearCart()}>Vaciar carrito <IoTrashOutline /> </p>
                         </div>
-                        <Table responsive  style={{backgroundColor:'white', borderRadius:'3rem',boxShadow: 'inset 0 0 0 5px #3dcc62'}}>
+                        <Table responsive style={{ backgroundColor: 'white', borderRadius: '3rem', boxShadow: 'inset 0 0 0 5px #3dcc62' }}>
                             <tbody>
                                 {cartItems.map((item) => (
-                                    <tr key={item.id} style={{ margin:'0rem 1rem',borderBottom: '1px solid #dee2e6' }}>
-                                        <td><img src={require(`../../assets/plants/plant${item.id}_2.png`).default} className="listImage" alt={`item-${item.id}`} /></td>
+                                    <tr key={item.id} style={{ margin: '0rem 1rem', borderBottom: '1px solid #dee2e6' }}>
+                                        <td><img src={require(`../../assets/plants/plant${item.item.foto}_2.png`).default} className="listImage" alt={`item-${item.id}`} /></td>
                                         <td><h5>x {item.quantity}</h5></td>
                                         <td><h5>{item.item.name.substring(0, 20)}</h5></td>
                                         <td><h5>${item.item.price * item.quantity}</h5></td>

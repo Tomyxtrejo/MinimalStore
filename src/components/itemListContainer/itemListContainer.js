@@ -5,36 +5,42 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemList } from '../itemList/itemList';
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { plantsJson } from '../../data'
+import { getFirestore } from '../../firebase'
 export const ItemListContainer = ({ tittle, greeting, anchor }) => {
 
   const { category } = useParams();
   const [plants, setPlants] = useState('loading')
 
-  const getPlants = (data) => {
-    return new Promise((res, rej) => {
-      setTimeout(() => {
-        return res(data)
-      }, 1000)
-    })
-  }
 
   useEffect(() => {
-    setPlants('loading')
-    getPlants(plantsJson).then(result => {
-      if (category){
-        const filtered = result.filter(plant => plant.category === category);
-        if (filtered.length) {
-          setPlants(filtered);
-        }else{
-          setPlants('empty')
+    const db = getFirestore()
+    const ItemCollection = db.collection('items')
+    ItemCollection
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.size === 0) {
+          console.log('NO HAY DATOS EN FIREBASE')
+        } else {
+          const data = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data()
+          }))
+          if (category) {
+            console.log('hay categoria')
+            let filtered = data.filter(plant => plant?.category === category);
+            if (filtered.length) {
+              setPlants(filtered);
+            } else {
+              setPlants('empty')
+            }
+          } else {
+            setPlants(data)
+          }
         }
-      }else{
-        setPlants(result);
       }
-    });
-    getPlants()
+      )
   }, [category])
+
 
 
   return (
