@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Home } from './views/home/home'
 import { ItemDetailContainer } from './views/itemDetailContainer/itemDetailContainer';
 import { Cart } from './views/cart/cart';
+import { Orders } from './views/orders/orders';
 import { ItemListContainer } from './components/itemListContainer/itemListContainer';
 import { ScrollToTop } from './components/scrollToTop/scrollToTop';
 import { Topbar } from './components/topbar/topbar';
@@ -29,6 +30,12 @@ function App() {
             </Route>
             <Route exact path='/cart'>
               <Cart />
+            </Route>
+            <Route exact path='/orders/:orderId'>
+              <Orders />
+            </Route>
+            <Route exact path='/orders'>
+              <Orders />
             </Route>
             <Route>
               <NotFound />

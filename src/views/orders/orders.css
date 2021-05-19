@@ -40,7 +40,6 @@ td, .removeSpan{
 .total{
     text-align: right;
     margin-right: 1.5rem;
-    margin-bottom: 2rem;
 }
 
 .checkout{
@@ -53,9 +52,3 @@ td, .removeSpan{
     flex-direction: column;
     align-items: flex-end;
 }
-
-.modal-dialog{
-    max-width: 600px;
-    margin: 0.75rem auto;
-}
-

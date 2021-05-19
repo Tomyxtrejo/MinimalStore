@@ -18,9 +18,9 @@ export const Item = ({ id, name, price, fotoId, stock }) => {
               {name}
             </Card.Text>
             <Card.Title className="cardPlantsPrice">${price}</Card.Title>
-            <Card.Text className="cardPlantsTagline">
-              {stock > 0 ? 'Envio gratis' : <p style={{color:'red'}}>No hay stock</p>}
-                </Card.Text>
+            <div className="cardPlantsTagline">
+              {stock > 0 ? 'Envio gratis' : <p style={{ color: 'red' }}>No hay stock</p>}
+            </div>
           </Card.Body>
         </Card>
       </Link>

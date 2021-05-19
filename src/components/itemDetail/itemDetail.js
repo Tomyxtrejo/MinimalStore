@@ -10,7 +10,7 @@ import { AiOutlineHome, AiOutlineLoading3Quarters } from 'react-icons/ai'
 
 
 
-export const ItemDetail = ({ plant }) => {
+export const ItemDetail = ({ plant, inCart }) => {
 
 
 
@@ -56,7 +56,7 @@ export const ItemDetail = ({ plant }) => {
                                                         <a className="linkSmall" href="/">Mas información</a>
                                                     </div>
                                                 </div>
-                                                <ItemInteractive item={plant} stock={plant.stock} size={plant.size} variety={plant.variety} id={plant.id} />
+                                                <ItemInteractive item={plant} stock={inCart[0] ? (plant.stock - inCart[1]) : plant.stock} size={plant.size} variety={plant.variety} id={plant.id} />
                                             </div>
                                             <div className="plantFeatures">
                                                 <ul className="featuresList">

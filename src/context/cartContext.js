@@ -1,4 +1,8 @@
 import { createContext, useState, useEffect } from 'react'
+import { getFirestore } from '../../src/firebase'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+
 
 
 export const CartContext = createContext()
@@ -6,6 +10,8 @@ export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([])
     const [quantity, setQuantity] = useState(0)
     const [total, setTotal] = useState(0)
+    const [orderSummary, setOrderSummary] = useState('')
+    const [orderId, setOrderId] = useState('')
     const calculateTotal = (arr) => {
         return arr.reduce((sum, i) => {
             return sum + (i.item.price * i.quantity)
@@ -14,7 +20,7 @@ export const CartProvider = ({ children }) => {
 
     useEffect(() => {
         let totalPrice = 0
-        cartItems.map((i) => {
+        cartItems.forEach((i) => {
             totalPrice = totalPrice + i.quantity
         })
         setQuantity(totalPrice)
@@ -22,7 +28,7 @@ export const CartProvider = ({ children }) => {
     }, [cartItems])
 
     const isInCart = (id) => {
-        let check = cartItems.filter((i) => i.id === id)
+        let check = cartItems.filter((i) => i.item.id === id)
         if (check.length) {
             return [true, check[0].quantity]
         }
@@ -30,28 +36,59 @@ export const CartProvider = ({ children }) => {
     }
 
     const addItem = (item, quantity) => {
-        const newItems = cartItems.filter((it) => it.id !== item.id)
+        const newItems = cartItems.filter((it) => it.item.id !== item.id)
         let inCart = isInCart(item.id)
         if (inCart[0]) {
             quantity = inCart[1] + quantity
         }
         setCartItems([...newItems, {
-            'id': item.id,
             'item': item,
             'quantity': quantity
         }])
     }
 
     const removeItem = (itemId) => {
-        setCartItems(cartItems.filter((it) => it.id !== itemId))
+        setCartItems(cartItems.filter((it) => it.item.id !== itemId))
     }
 
     const clearCart = () => {
         setCartItems([])
+        setOrderId('')
+        setOrderSummary('')
     }
 
+    useEffect(() => {
+        const send = async () => {
+            try {
+                const db = getFirestore();
+                const orders = db.collection('orders')
+                const batch = db.batch()
+                const { id } = await orders.add(orderSummary);
+                cartItems.forEach((it) => {
+                    const itemRef = db.collection('items').doc(it.item.id)
+                    batch.update(itemRef, { stock: (it.item.stock - it.quantity) })
+                })
+                batch.commit()
+                setOrderId(id)
+                setCartItems([])
+            } catch (err) {
+
+            }
+        }
+        send()
+
+    }, [orderSummary])
+
+    const sendOrder = buyerData => {
+        setOrderSummary({
+            buyer: buyerData,
+            items: cartItems,
+            date: firebase.firestore.FieldValue.serverTimestamp(),
+            total: total
+        })
+    }
     return (
-        <CartContext.Provider value={{ cartItems, quantity, addItem, removeItem, isInCart, clearCart, total }}>
+        <CartContext.Provider value={{ cartItems, setCartItems, quantity, addItem, removeItem, isInCart, clearCart, sendOrder, orderId, orderSummary, total }}>
             {children}
         </CartContext.Provider>
     )
