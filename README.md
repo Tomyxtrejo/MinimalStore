@@ -19,8 +19,8 @@ It was such a fun challenge to create all the pieces of this puzzle, and make th
 
 ## 🎬 Live Demo
 
-Check out the [live demo of Plantr](),
-deployed on heroku.
+Check out the [live demo of Plantr](https://tienda-plantr.web.app),
+deployed on firebase hosting.
 
 Or if you want to build it by yourself, follow these instructions:
 
