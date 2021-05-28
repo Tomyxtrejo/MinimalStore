@@ -17,5 +17,17 @@
 }
 .linkCategory p {
     margin-bottom: 0rem;
-
+    animation: fadeIn 1s;
 }
+
+.linkCategoryActive {
+    color: #3dcc62;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  .logo{
+      width: 6rem;
+  }

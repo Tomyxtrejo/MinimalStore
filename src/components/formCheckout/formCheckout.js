@@ -4,7 +4,6 @@ import { ButtonPlantr } from '../buttonPlantr/buttonPlantr'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { IoCardOutline } from 'react-icons/io5'
 
-
 export const FormCheckout = ({ onConfirmBuy }) => {
     const [clicked, setClicked] = useState(false)
     const [emptyFields, setEmptyFields] = useState(false)
@@ -19,14 +18,19 @@ export const FormCheckout = ({ onConfirmBuy }) => {
         if (isEmpty(formDataObj)) {
             setEmptyFields(true)
         } else {
-            setClicked(true)
-            onConfirmBuy(formDataObj)
+            if (formDataObj.mail === formDataObj.confirmmail) {
+                setClicked(true)
+                delete formDataObj.confirmmail
+                onConfirmBuy(formDataObj)
+            } else {
+                setEmptyFields(true)
+            }
         }
-    };
+    }
 
     return (
         <Fragment>
-            <Row style={{ borderBottom: '1px rgba(0,0,0,0.1) solid', padding: '1rem 0', marginBottom: '2rem' }}>
+            <Row style={{ borderBottom: '1px rgba(0,0,0,0.1) solid', padding: '0rem 0 1rem 0', marginBottom: '2rem' }}>
                 <Col xs={2}>
                     <IoCardOutline style={{ fontSize: '4rem', color: '#3dcc62' }} />
                 </Col>
@@ -45,24 +49,20 @@ export const FormCheckout = ({ onConfirmBuy }) => {
             </Row>
             <Form onSubmit={onFormSubmit}>
                 <Form.Row style={{ marginBottom: '2rem' }}>
-                    <Form.Group controlId="formGridEmail">
+                    <Form.Group as={Col}>
                         <Form.Label>Nombre completo</Form.Label>
-                        <Form.Control type="text" placeholder="Nombre y Apellido" name="name" />
-                    </Form.Group>
-                    <Form.Group as={Col} controlId="formGridAddress2">
+                        <Form.Control type="text" placeholder="Nombre y Apellido" name="name" style={{ marginBottom: '2rem' }} />
                         <Form.Label>Correo electronico</Form.Label>
                         <Form.Control type="email" placeholder="tucorreo@gmail.com" name="mail" />
                     </Form.Group>
-                    <Form.Group controlId="formGridCity">
+                    <Form.Group as={Col}>
                         <Form.Label>Telefono</Form.Label>
-                        <Form.Control type="number" placeholder="Numero de telefono" name="phone" />
-                    </Form.Group>
-                    <Form.Group as={Col} controlId="formGridAddress1">
-                        <Form.Label>Dirección</Form.Label>
-                        <Form.Control type="text" placeholder="Calle falsa 123" name="address" />
+                        <Form.Control type="number" placeholder="Numero de telefono" name="phone" style={{ marginBottom: '2rem' }} />
+                        <Form.Label>Repetir correo</Form.Label>
+                        <Form.Control type="email" placeholder="tucorreo@gmail.com" name="confirmmail" />
                     </Form.Group>
                 </Form.Row>
-                {emptyFields && <p style={{ color: 'red' }}>Completa todos los campos</p>}
+                {emptyFields && <p style={{ color: 'red' }}>Revisa los campos</p>}
                 {clicked ?
                     <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1rem', flexDirection: 'column' }}>
                         <AiOutlineLoading3Quarters className="loader" />

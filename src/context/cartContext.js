@@ -3,8 +3,6 @@ import { getFirestore } from '../../src/firebase'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
-
-
 export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([])
@@ -16,7 +14,7 @@ export const CartProvider = ({ children }) => {
         return arr.reduce((sum, i) => {
             return sum + (i.item.price * i.quantity)
         }, 0)
-    };
+    }
 
     useEffect(() => {
         let totalPrice = 0
@@ -27,10 +25,10 @@ export const CartProvider = ({ children }) => {
         setTotal(calculateTotal(cartItems))
     }, [cartItems])
 
-    const isInCart = (id) => {
-        let check = cartItems.filter((i) => i.item.id === id)
-        if (check.length) {
-            return [true, check[0].quantity]
+    const isInCart = (id) => {        
+        let checkId = cartItems.filter((i) => i.item.id === id)
+        if (checkId.length) {
+            return [true, checkId[0].quantity]
         }
         return [false]
     }
@@ -79,6 +77,30 @@ export const CartProvider = ({ children }) => {
 
     }, [orderSummary])
 
+    const changeItemQuantity = (e, id) => {
+        let itemsUpdated = [...cartItems]
+        itemsUpdated.map((item, i) => {
+            if (item.item.id === id) {
+                if (item.quantity !== item.item.stock) {
+                    if (item.quantity !== 1) {
+                        itemsUpdated[i].quantity = item.quantity + e
+                    } else {
+                        if (e === 1) {
+                            itemsUpdated[i].quantity = item.quantity + e
+                        }
+                    }
+                } else {
+                    if (item.quantity !== 1) {
+                        if (e === -1) {
+                            itemsUpdated[i].quantity = item.quantity + e
+                        }
+                    }
+                }
+            }
+        })
+        setCartItems(itemsUpdated)
+    }
+
     const sendOrder = buyerData => {
         setOrderSummary({
             buyer: buyerData,
@@ -88,7 +110,7 @@ export const CartProvider = ({ children }) => {
         })
     }
     return (
-        <CartContext.Provider value={{ cartItems, setCartItems, quantity, addItem, removeItem, isInCart, clearCart, sendOrder, orderId, orderSummary, total }}>
+        <CartContext.Provider value={{ cartItems, setCartItems, quantity, addItem, removeItem, isInCart, clearCart, sendOrder, orderId, orderSummary, total, changeItemQuantity }}>
             {children}
         </CartContext.Provider>
     )

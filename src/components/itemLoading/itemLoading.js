@@ -16,6 +16,6 @@ export const ItemLoading = () => {
         </Card.Body>
       </Card>
     </Col>
-  );
+  )
 }
 

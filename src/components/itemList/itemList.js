@@ -1,48 +1,40 @@
 import { Row } from 'react-bootstrap';
+import { useContext } from 'react'
 import '../../App.css';
 import './itemList.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Item } from '../item/item';
 import { ItemLoading } from '../itemLoading/itemLoading';
-import { ButtonPlantr } from '../buttonPlantr/buttonPlantr';
-import { Link } from 'react-router-dom'
-import { AiOutlineHome } from 'react-icons/ai'
-
+import { Notice } from '../notice/notice'
+import { WishListContext } from '../../context/wishListContext'
 
 export const ItemList = ({ plants }) => {
+  const { isInWishList } = useContext(WishListContext)
   if (plants !== 'loading') {
     if (plants === 'empty') {
       return (
-        <Row style={{ padding: '5rem 0 20rem 0', flexDirection: 'column' }}>
-          <h4 style={{ marginBottom: '2rem' }}>Aun no hay plantas en esta categoria</h4>
-          <div style={{ width: '20%' }}>
-            <Link to='/'>
-              <ButtonPlantr style={{}}><AiOutlineHome /> Volver al inicio</ButtonPlantr>
-            </Link>
-          </div>
-        </Row>
-
+        <Notice header="Aun no hay plantas en esta categoria" bg={false} buttons={[{ text: 'Volver al inicio', link: '/', icon: 'home' }]} />
       )
     } else {
       return (
         <Row>
           {plants.map((plant) => (
             <Item
+              key={plant?.id}
               id={plant?.id}
               name={plant?.name}
               description={plant?.description}
               price={plant?.price}
               stock={plant?.stock}
-              fotoId={plant?.foto}
-              key={plant?.id}
+              whishlisted={isInWishList(plant?.id)}
+              plant={plant}
+              image={plant?.images[1]}
             />
           ))}
         </Row>
       )
     }
-
   } else {
-
     return (
       <Row>
         <ItemLoading />

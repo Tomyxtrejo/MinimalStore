@@ -4,17 +4,9 @@ import { HeroSlider } from '../../components/heroSlider/heroSlider';
 import { ItemListContainer } from '../../components/itemListContainer/itemListContainer';
 import slide from "../../assets/slide.jpg";
 
-
-
 export const Home = () => {
-
-
-
-
-
     return (
         <div id="home">
-
             <HeroSlider
                 tittle="Tu tienda de plantas"
                 subtittle="Venimos a mejorar tu experiencia con el mundo de las plantas.
@@ -33,9 +25,6 @@ export const Home = () => {
                 tittle="Novedades"
                 anchor="new"
             />
-
-
         </div>
-    );
+    )
 }
-

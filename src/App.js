@@ -9,40 +9,44 @@ import { ScrollToTop } from './components/scrollToTop/scrollToTop';
 import { Topbar } from './components/topbar/topbar';
 import { Footer } from './components/footer/footer';
 import { CartProvider } from './context/cartContext';
-import { NotFound } from './views/notFound/notFound'
+import { WishListProvider } from './context/wishListContext';
+import { Notice } from './components/notice/notice'
 
 function App() {
+  document.title = "Plantr: Tu tienda de plantas";
   return (
     <div>
       <CartProvider>
-        <BrowserRouter>
-          <ScrollToTop />
-          <Topbar />
-          <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route exact path='/item/:id'>
-              <ItemDetailContainer />
-            </Route>
-            <Route exact path='/category/:category'>
-              <ItemListContainer />
-            </Route>
-            <Route exact path='/cart'>
-              <Cart />
-            </Route>
-            <Route exact path='/orders/:orderId'>
-              <Orders />
-            </Route>
-            <Route exact path='/orders'>
-              <Orders />
-            </Route>
-            <Route>
-              <NotFound />
-            </Route>
-          </Switch>
-          <Footer />
-        </BrowserRouter>
+        <WishListProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <Topbar />
+            <Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+              <Route exact path='/item/:id'>
+                <ItemDetailContainer />
+              </Route>
+              <Route exact path='/category/:category'>
+                <ItemListContainer />
+              </Route>
+              <Route exact path='/cart'>
+                <Cart />
+              </Route>
+              <Route exact path='/orders/:orderId'>
+                <Orders />
+              </Route>
+              <Route exact path='/orders'>
+                <Orders />
+              </Route>
+              <Route>
+                <Notice header="Parece que no hay nada por aca" buttons={[{ text: 'Volver al inicio', link: '/' }]} />
+              </Route>
+            </Switch>
+            <Footer />
+          </BrowserRouter>
+        </WishListProvider>
       </CartProvider>
     </div>
   )

@@ -4,6 +4,13 @@
     animation: spin-animation 0.5s infinite;
     display: inline-block;
   }
+  .loaderContainer{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 1rem;
+    flex-direction: column;
+  }
   
   @keyframes spin-animation {
     0% {

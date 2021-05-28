@@ -51,6 +51,8 @@
     font-size: 1.1rem !important;
     font-weight: 600!important;
     margin-top:-0.8rem !important; 
+    display: flex;
+    justify-content: center;
   }
   
   .cardPlants:hover .cardPlantsName{
@@ -75,5 +77,36 @@
     transform: scale(1.06);
     transition: 250ms ease-in-out;
   }
+  .noUnderLine{
+    text-decoration: none !important;
+  }
+  .outOfStockText{
+    color: red;
+  }
+.wishlisted{
+  position: absolute;
+  left: 10rem;
+  bottom: 8rem;
+  z-index: 1000;
+  font-size: 4rem;
+  transform: rotate(15deg);
+  transform: scale(1);
+  transition: 500ms ease-in-out;
+  animation: popUp 500ms;
+}
+@keyframes popUp {
+  0% {
+    opacity:0;
+    transform: rotate(0deg);
+    transform: scale(0);
+  }
+  45% {
+    transform: scale(4);
+  }
+  100% {
+    opacity:1;
+    transform: rotate(45deg);
+    transform: scale(1);
 
-  
+  }
+}

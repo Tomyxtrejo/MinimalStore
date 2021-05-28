@@ -191,3 +191,40 @@ ul {
       transform: rotate(359deg);
     }
   }
+  .noPlantContainer{
+    padding: 15rem 0 20rem 0;
+    flex-direction: column;
+  }
+  .noPlantHeader{
+    margin-bottom: 2rem;
+  }
+  .noPlantButtonContainer{
+    width: 20%;
+  }
+  .plantInfoContainer{
+    padding-top: 8rem;
+  }
+  .featuresContainer{
+    margin-top: 2rem;
+  }
+  .infoHeader{
+    color: #828683;
+  }
+  .plantImageFeatures{
+    max-width: 100%;
+    user-select: none;
+  }
+  .userCommentImage{
+    border-radius: 100%;
+    margin-right: 1rem;
+  }
+  .loaderContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15rem 0 20rem 0;
+    flex-direction: column ;
+  }
+  .wishListButton{
+    display:contents;
+  }

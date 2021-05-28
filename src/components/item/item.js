@@ -1,25 +1,34 @@
-import React from "react";
+import { Fragment } from "react";
 import { Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import '../../App.css';
 import './item.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { IconContext } from 'react-icons'
+import { IoHeart } from 'react-icons/io5';
 
-export const Item = ({ id, name, price, fotoId, stock }) => {
-  const images = require.context('../../../public/plants', true);
-  let imgsrc = images(`./plant${fotoId}_2.png`);
+export const Item = ({ id, name, price, stock, whishlisted, image }) => {
   return (
     <Col lg={4} md={6} sm={12} className="d-flex justify-content-center" key={id}>
-      <Link to={`/item/${id}`} style={{ textDecoration: 'none' }}>
+      <Link to={`/item/${id}`} className="noUnderLine">
         <Card className="text-center cardPlants">
-          <Card.Img variant="bottom" src={imgsrc.default} className="cardPlantsImg" />
+          {whishlisted &&
+            <Fragment>
+              <h1 className="wishlisted">
+                <IconContext.Provider value={{ color: "#3dcc62" }}>
+                  <IoHeart />
+                </IconContext.Provider>
+              </h1>
+            </Fragment>
+          }
+          <Card.Img variant="bottom" src={image} className="cardPlantsImg" />
           <Card.Body>
             <Card.Text className="cardPlantsName">
               {name}
             </Card.Text>
             <Card.Title className="cardPlantsPrice">${price}</Card.Title>
             <div className="cardPlantsTagline">
-              {stock > 0 ? 'Envio gratis' : <p style={{ color: 'red' }}>No hay stock</p>}
+              {stock > 0 ? 'Envio gratis' : <p className="outOfStockText">No hay stock</p>}
             </div>
           </Card.Body>
         </Card>

@@ -10,7 +10,5 @@ export const ItemCounter = ({ tittle, onAdd, quantity }) => {
                 <div className="buttonCounter" onClick={(e) => onAdd(1)}>+</div>
             </div>
         </div>
-
     )
-
 }

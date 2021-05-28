@@ -1,7 +1,8 @@
-import { Row, Container, Table, Form } from 'react-bootstrap';
+import { Row, Container, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './orders.css';
 import { ButtonPlantr } from '../../components/buttonPlantr/buttonPlantr';
+import { ItemsTable } from '../../components/itemsTable/itemsTable';
 import { useState, useEffect } from 'react'
 import { getFirestore } from '../../firebase'
 import slide from "../../assets/slide.jpg";
@@ -20,7 +21,7 @@ export const Orders = () => {
         } else {
             history.push(`/orders/${e.target[0].value}`)
         }
-    };
+    }
 
     useEffect(() => {
         if (orderId) {
@@ -49,18 +50,7 @@ export const Orders = () => {
                             <h5>Fecha de ingreso: {new Date(order.date.seconds * 1000).toLocaleDateString("es-AR")}</h5>
                         </div>
                         <h4 style={{ marginBottom: '2rem', color: 'rgb(61 204 98)' }}>Estado: En deposito</h4>
-                        <Table responsive style={{ backgroundColor: 'white', borderRadius: '3rem', boxShadow: 'inset 0 0 0 5px #3dcc62' }}>
-                            <tbody>
-                                {order.items.map((item) => (
-                                    <tr key={item.item.id} style={{ margin: '0rem 1rem', borderBottom: '1px solid #dee2e6' }}>
-                                        <td><img src={require(`../../assets/plants/plant${item.item.foto}_2.png`).default} className="listImage" alt={`item-${item.id}`} /></td>
-                                        <td><h5>x {item.quantity}</h5></td>
-                                        <td><h5>{item.item.name.substring(0, 20)}</h5></td>
-                                        <td><h5>${item.item.price * item.quantity}</h5></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </Table>
+                        <ItemsTable items={order.items} controllable={false} />
                         <div className="bottomCart">
                             <h2 className="total">Total: ${order.total}</h2>
                         </div>
@@ -82,4 +72,3 @@ export const Orders = () => {
         </div>
     )
 }
-
